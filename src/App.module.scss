@@ -1,0 +1,60 @@
+.PageLayout {
+  display: flex;
+  flex-direction: Column;
+  min-height: 100vh;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.Menu {
+  height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 64px;
+  background: #FCFCFC 0% 0% no-repeat padding-box;
+  border-bottom: 1px solid #EBEDF2;
+  opacity: 1;
+}
+
+.LabelText {
+  /* UI Properties */
+  font: var(--unnamed-font-style-normal) normal 600 var(--unnamed-font-size-20)/var(--unnamed-line-spacing-27) var(--unnamed-font-family-noto-sans-display);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  color: var(--unnamed-color-141746);
+  font: normal normal 600 20px/27px Noto Sans Display;
+  letter-spacing: 0px;
+  color: #141746;
+  opacity: 1;
+}
+
+.BottomLayout {
+  display: flex;
+  flex-direction: row;
+  min-height: calc(100vh - 65px);
+}
+
+.Sider {
+  width: 56px;
+  background: #FCFCFC 0% 0% no-repeat padding-box;
+  border: 1px solid #EBEDF2;
+  opacity: 1;
+}
+
+.Button {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 8px 8px 0;
+  border: 0;
+  border-radius: 2px;
+  padding: 0;
+  justify-content: center;
+  text-align: center;
+  // background: transparent 0% 0% no-repeat padding-box;
+  // opacity: 1;
+}
+
+.Button img {
+  display: block;
+}
