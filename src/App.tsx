@@ -48,7 +48,7 @@ function App() {
             <img src={CreateBox} alt="Create Box" />
           </button>
         </div>
-        <canvas className={styles.CanvasLayout} />
+        <canvas className={styles.CanvasLayout} id="label-canvas" />
         <img src={photo} alt={photoTitle} />
       </div>
     </div >

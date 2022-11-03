@@ -1,6 +1,6 @@
 export interface LabelRect {
-  x: number;
-  y: number;
+  x: number; // small x
+  y: number; // small y
   width: number;
   height: number;
 }
@@ -22,12 +22,16 @@ export default class LabelCanvas {
   height: number;
   labels: LabelRect[];
   mode: LabelEvent;
+  canvas: HTMLCanvasElement;
+  context: CanvasRenderingContext2D;
 
   constructor(width: number, height: number) {
     this.width = width;
     this.height = height;
     this.labels = [];
-    this.mode = LabelEvent.DeleteLabel;
+    this.mode = LabelEvent.DefaultEvent;
+    this.canvas = document.getElementById('label-canvas') as HTMLCanvasElement;
+    this.context = this.canvas.getContext("2d") as CanvasRenderingContext2D;
   }
 
   createLabel(x: number, y: number, endX: number, endY: number) {
