@@ -32,8 +32,6 @@ function App() {
       try {
         const json = await fetchPhotoInfoById(id);
 
-        console.log(json);
-
         setPhotoTitle(json.title);
         setPhoto(json.url);
       } catch (e) {
