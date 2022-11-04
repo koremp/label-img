@@ -51,6 +51,7 @@ export class LabelCanvas {
   }
 
   changeLabelMode(mode: LabelMode) {
+    console.log(mode)
     this.labelMode = mode;
 
     if (this.labelMode === LabelMode.ViewLabel) {
@@ -83,7 +84,8 @@ export class LabelCanvas {
       this.context.strokeRect(x - ANCHOR_BOX_HALF_WIDTH + width,
         y - ANCHOR_BOX_HALF_WIDTH, ANCHOR_BOX_WIDTH, ANCHOR_BOX_WIDTH);
 
-      this.context.strokeRect(x - ANCHOR_BOX_HALF_WIDTH + width, y - ANCHOR_BOX_HALF_WIDTH + height, ANCHOR_BOX_WIDTH, ANCHOR_BOX_WIDTH);
+      this.context.strokeRect(x - ANCHOR_BOX_HALF_WIDTH + width,
+        y - ANCHOR_BOX_HALF_WIDTH + height, ANCHOR_BOX_WIDTH, ANCHOR_BOX_WIDTH);
     })
   }
 
@@ -138,13 +140,5 @@ export class LabelCanvas {
     if (this.labelMode === LabelMode.SelectLabel) {
 
     }
-  }
-
-  onMouseEnter() {
-
-  }
-
-  onMouseLeave() {
-
   }
 }
