@@ -59,4 +59,20 @@
   display: block;
 }
 
-.CanvasLayout {}
+.ImageWrapperLayout {
+  width: 600px;
+  height: 600px;
+  position: relative;
+}
+
+.ImageLayout {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.CanvasLayout {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
