@@ -4,13 +4,55 @@
   * 채용페이지
 * <https://github.com/heartexlabs/labelImg>
   * label img 예시 라이브러리
-  * Password
-    * SIA_coding_test_2021
 * <https://xd.adobe.com/view/21da78f5-6694-4841-7043-93c30bd11181-57eb/>
   * 어도비 디자인 시안
 * <https://jsonplaceholder.typicode.com/photos>
   * photos example
 
+## 동작방법
+
+```sh
+# 레포지토리 클론
+git clone https://github.com/koremp/label-img.git
+
+# 설치
+yarn install
+
+# 실행
+yarn start
+```
+
+## src/utils/label.ts
+
+| 함수/변수/타입 이름      | 기능                                           |
+| ------------------------ | ---------------------------------------------- |
+| interface: LabelRect     | 라벨 직사각형의 인터페이스                     |
+| type: LabelMode          | 기본, 라벨 생성, 라벨 선택 타입들              |
+| type: SelectedLabelEvent | LabelMode가 SelectLabel일 때 할 동작들         |
+| class: LabelCanvas       | Canvas Context로 동작할 기능들을 정의한 클래스 |
+
+LabelCanvas class 함수
+
+| 함수명                    | 기능                                             |
+| ------------------------- | ------------------------------------------------ |
+| changeLabelMode           | 모드 변경                                        |
+| addAnchorToSelectedLabels | 선택된 라벨 직사각형에 앵커들을 생성             |
+| createLabel               | 라벨 생성하는 함수                               |
+| selectLabel               | 라벨 선택하는 함수                               |
+| onMouseDownCanvas         | 캔버스에 마우스 클릭시 동작할 행동을 정의한 함수 |
+
+## 못한 것
+
+* 필수 구현
+  * 라벨 생성
+  * 라벨 선택
+    * 라벨 다중 선택
+  * 라벨 이동 기능
+  * 라벨 삭제
+* 선택 요구 사항
+  * 라벨 크기 조정
+  * 라벨 회전
+  * 테스트 코드
 
 ## 디버깅
 
