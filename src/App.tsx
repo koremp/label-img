@@ -1,7 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 import Select from './images/Select.svg';
-import CreateBox from './images/CreateBox.svg';
+import CreateLabel from './images/CreateLabel.svg';
+
+import { LabelCanvas } from './utils/label';
+
+import { LabelMode } from './utils/label';
 
 import { fetchPhotoInfoById } from './utils/apis';
 
@@ -14,7 +18,15 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
 
+  const canvas = useRef() as React.MutableRefObject<HTMLCanvasElement>;
+
+  const [labelCanvas, setLabelCanvas] = useState<LabelCanvas | null>(null);
+
   useEffect(() => {
+    if (canvas.current.getContext('2d')) {
+      setLabelCanvas(new LabelCanvas(canvas.current.getContext('2d')));
+    }
+
     const fetchPhoto = async () => {
       setIsLoading(true);
       try {
@@ -34,6 +46,14 @@ function App() {
     fetchPhoto();
   }, [id])
 
+  const onClickSelect = () => {
+    labelCanvas && labelCanvas.changeLabelMode(LabelMode.SelectLabel);
+  }
+
+  const onClickCreateLabel = () => {
+    labelCanvas && labelCanvas.changeLabelMode(LabelMode.CreateLabel);
+  }
+
   return (
     <div className={styles.PageLayout}>
       <header className={styles.Menu}>
@@ -41,15 +61,17 @@ function App() {
       </header>
       <div className={styles.BottomLayout}>
         <div className={styles.Sider}>
-          <button className={styles.Button} >
+          <button className={styles.Button} onClick={() => onClickSelect()}>
             <img src={Select} alt="Select" />
           </button>
-          <button className={styles.Button} >
-            <img src={CreateBox} alt="Create Box" />
+          <button className={styles.Button} onClick={() => onClickCreateLabel()}>
+            <img src={CreateLabel} alt="Create Label" />
           </button>
         </div>
-        <canvas className={styles.CanvasLayout} id="label-canvas" />
-        <img src={photo} alt={photoTitle} />
+        <div className={styles.ImageWrapperLayout}>
+          <img className={styles.ImageLayout} src={photo} alt={photoTitle} />
+          <canvas ref={canvas} className={styles.CanvasLayout} />
+        </div>
       </div>
     </div >
   );
